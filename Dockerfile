@@ -18,3 +18,7 @@ RUN npm run build
 FROM nginx as runner
 COPY --from=builder /app/build /usr/share/nginx/html
 
+# To run:
+# docker build .
+# docker run -p 8080:80 <container id>
+# Note: nginx image default port is 80
