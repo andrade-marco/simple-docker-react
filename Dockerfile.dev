@@ -1,0 +1,14 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+# Do not need, but it is good to keep it
+# Without docker-compose, we need it and
+# if this file becomes the base for prod
+# we need to make copy of working dir
+COPY . .
+
+CMD ["npm", "run", "start"]
