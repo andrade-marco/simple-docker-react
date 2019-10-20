@@ -16,6 +16,7 @@ RUN npm run build
 # Run stage
 # Run nginx server to serve static content
 FROM nginx as runner
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 
 # To run:
